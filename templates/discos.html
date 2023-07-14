@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Discos</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+crossorigin="anonymous">
+</head>
+<body>
+<header id="header">
+<!-- place navbar here -->
+</header>
+<main>
+<div id="app" class="container">
+<h1>Discos</h1>
+<br>
+<a class="btn btn-primary" href="../templates/disco_nuevo.html">Nuevo</a>
+<br><br>
+<div v-if="error">
+<p>Lo sentimos , ........</p>
+</div>
+<div v-else>
+<section v-if="cargando">
+<div class="spinner-border"></div>
+<p>Cargando .....</p>
+</section>
+
+<section v-else>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" v-for="disco in discos" :key="disco.id" style="width: 20rem;">
+        <div class="card">
+            <a :href="'./videos.html?id=' + disco.id">
+                <img class="card-img-top" :src="disco.imagen" :alt="disco.imagen">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">{{ disco.nombre }}</h5>
+                <p class="card-text">{{ disco.artista }}</p>
+                <p class="card-text">{{ disco.afecha }}</p>
+                
+                <a class="btn btn-primary" :href="'./disco_update.html?id=' + disco.id">Editar</a>
+                <button class="btn btn-danger" @click="eliminar(disco.id)">Eliminar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+</div>
+</div>
+
+</main>
+<footer>
+<!-- place footer here -->
+</footer>
+<script>
+<!--Link de Bootstrap-->
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+crossorigin="anonymous"</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+<script src="../js/discos.js"></script>
+</body>
+</html>

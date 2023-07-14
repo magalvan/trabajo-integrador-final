@@ -8,7 +8,7 @@
 integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
 crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-secondary">
 <header id="header">
 <!-- place navbar here -->
 </header>
@@ -16,7 +16,7 @@ crossorigin="anonymous">
 <div id="app" class="container">
 <h1>Discos</h1>
 <br>
-<a class="btn btn-primary" href="../templates/disco_nuevo.html">Nuevo</a>
+<a class="btn btn-success" href="../templates/disco_nuevo.html">Nuevo</a>
 <br><br>
 <div v-if="error">
 <p>Lo sentimos , ........</p>
@@ -28,9 +28,9 @@ crossorigin="anonymous">
 </section>
 
 <section v-else>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col" v-for="disco in discos" :key="disco.id" style="width: 20rem;">
-        <div class="card">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" v-for="disco in discos" :key="disco.id">
+        <div class="card h-100">
             <a :href="'./videos.html?id=' + disco.id">
                 <img class="card-img-top" :src="disco.imagen" :alt="disco.imagen">
             </a>

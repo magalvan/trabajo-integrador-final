@@ -8,15 +8,17 @@
 integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
 crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-secondary">
 <header id="header">
 <!-- place navbar here -->
 </header>
 <main>
 <div id="app" class="container">
+
 <h1>Videografia</h1>
 <br>
-<a class="btn btn-primary" :href="'./video_nuevo.html?id='+ iddisco">Nuevo</a>
+<a class="btn btn-dark" href="./index.html" role="button">Volver</a>
+<a class="btn btn-success" :href="'./video_nuevo.html?id='+ iddisco">Nuevo</a>
 <br><br>
 <div v-if="error">
 <p>Lo sentimos , ........</p>
@@ -28,11 +30,11 @@ crossorigin="anonymous">
 </section>
 <section v-else>
 <div class="table-responsive">
-<table class="table table-bordered">
+<table class="table table-bordered  bg-light">
 <thead>
 <tr>
-<th scope="col">ID</th>
-<th scope="col">ID Disco</th>
+<!--<th scope="col">ID</th>
+<th scope="col">ID Disco</th>-->
 <th scope="col">Nombre</th>
 <th scope="col">URL</th>
 <th scope="col">Acciones</th>
@@ -40,8 +42,8 @@ crossorigin="anonymous">
 </thead>
 <tbody>
 <tr class="" v-for="video in videos" :key="video.id">
-<td scope="row">{{video.id}}</td>
-<td>{{video.iddisco}}</td>
+<!--<td scope="row">{{video.id}}</td>
+<td>{{video.iddisco}}</td>-->
 <td>{{video.nombre}}</td>
 <td><a :href=video.videoclip>{{video.videoclip}}</a></td>
 <td>
